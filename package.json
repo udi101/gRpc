@@ -4,8 +4,9 @@
   "description": "This is a project for Udemy course on gRPC",
   "main": "index.js",
   "scripts": {
-    "pb:gen": "./scripts/gen.sh greet",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "proto:generate": "./scripts/gen.sh greet",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "ts-node greet/server"
   },
   "keywords": [],
   "author": "",
