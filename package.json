@@ -6,7 +6,8 @@
   "scripts": {
     "proto:generate": "./scripts/gen.sh greet",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "ts-node greet/server"
+    "greet:server": "nodemon greet/server/index.js",
+    "greet:client": "nodemon greet/client/index.js"
   },
   "keywords": [],
   "author": "",
