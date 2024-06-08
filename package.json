@@ -5,9 +5,10 @@
   "main": "index.js",
   "scripts": {
     "proto:generate": "./scripts/gen.sh",
+    "proto:ts": "./scripts/gen-ts.sh greet",
     "test": "echo \"Error: no test specified\" && exit 1",
     "greet:server": "nodemon greet/server/index.js",
-    "greet:client": "nodemon greet/client/index.js",
+    "greet:client": "ts-node greet/client",
     "calc:server": "nodemon calc/server/index.js",
     "calc:client": "nodemon calc/client/index.js"
   },
@@ -16,9 +17,12 @@
   "license": "ISC",
   "dependencies": {
     "@grpc/grpc-js": "^1.10.8",
-    "google-protobuf": "^3.21.2"
+    "google-protobuf": "^3.21.2",
+    "nice-grpc": "^2.1.9"
   },
   "devDependencies": {
+    "@types/google-protobuf": "^3.15.12",
+    "grpc_tools_node_protoc_ts": "^5.3.3",
     "grpc-tools": "^1.12.4"
   }
 }

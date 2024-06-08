@@ -1,8 +1,9 @@
 const grpc = require('@grpc/grpc-js');
-const {GreetServiceClient} = require('../proto/greet_grpc_pb');
-const {GreetRequest} = require('../proto/greet_pb');
 
-function doGreet(client) {
+import {GreetServiceClient} from './../proto/greet_grpc_pb';
+import {GreetRequest} from './../proto/greet_pb';
+
+const doGreet = (client: GreetServiceClient) => {
     console.log('DoGreet was invoked by client!');
     const req = new GreetRequest().setFirstName('Udi');
 
@@ -16,12 +17,14 @@ function doGreet(client) {
     });
 }
 
-function main() {
+const main = () => {
     const creds = grpc.credentials.createInsecure();
     const addr = 'localhost:50051';
     const client = new GreetServiceClient(addr, creds);
 
     doGreet(client);
+
 }
+
 
 main();
