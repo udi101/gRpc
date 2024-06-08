@@ -4,10 +4,12 @@
   "description": "This is a project for Udemy course on gRPC",
   "main": "index.js",
   "scripts": {
-    "proto:generate": "./scripts/gen.sh greet",
+    "proto:generate": "./scripts/gen.sh",
     "test": "echo \"Error: no test specified\" && exit 1",
     "greet:server": "nodemon greet/server/index.js",
-    "greet:client": "nodemon greet/client/index.js"
+    "greet:client": "nodemon greet/client/index.js",
+    "calc:server": "nodemon calc/server/index.js",
+    "calc:client": "nodemon calc/client/index.js"
   },
   "keywords": [],
   "author": "",
