@@ -5,12 +5,13 @@
   "main": "index.js",
   "scripts": {
     "proto:generate": "./scripts/gen.sh",
-    "proto:ts": "./scripts/gen-ts.sh greet",
+    "proto:generate:greet": "scripts/gen.sh greet",
+    "proto:generate:calc": "scripts/gen.sh calculator",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "greet:server": "nodemon greet/server/index.ts",
+    "greet:server": "nodemon greet/server",
     "greet:client": "ts-node greet/client",
-    "calc:server": "nodemon calc/server/index.js",
-    "calc:client": "nodemon calc/client/index.js"
+    "calc:server": "ts-node calculator/server",
+    "calc:client": "ts-node calculator/client"
   },
   "keywords": [],
   "author": "",

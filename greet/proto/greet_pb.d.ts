@@ -1,5 +1,5 @@
 // package: Greet
-// file: greet/proto/greet.proto
+// file: greet.proto
 
 /* tslint:disable */
 /* eslint-disable */

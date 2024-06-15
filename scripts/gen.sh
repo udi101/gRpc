@@ -1,29 +1,13 @@
-#!/bin/bash
-# USAGE: gen.sh PATH(s)
-# PATH: project path which contains a proto directory and
-#   a .proto named after the project (eg: blog, blog.proto)
-#   and optionally some other .proto files
-
-argc=$#
 argv=("$@")
+argc=$#
 
 for (( j = 0; j < argc; ++j )); do
-  # Generate gRPC and Protobuf code for ${PROJECT}/${PROJECT}.proto
-  # (eg: greet/greet.proto)
-  ./node_modules/.bin/grpc_tools_node_protoc -I ${argv[j]}/proto/                                   \
-    --js_out=import_style=commonjs:${argv[j]}/proto/                            \
-    --grpc_out=grpc_js:${argv[j]}/proto/                                        \
-    ${argv[j]}/proto/${argv[j]}.proto;
-
-  # Generate only Protobuf code for all the other .proto files (if any)
-  # (eg: calculator/calc.proto)
-  ./node_modules/.bin/grpc_tools_node_protoc -I ${argv[j]}/proto/                                   \
-    --js_out=import_style=commonjs:${argv[j]}/proto/                            \
-    $(find ${argv[j]}/proto/ -type f -name "*.proto" -not -path "${argv[j]}/proto/${argv[j]}.proto")
+ ./node_modules/.bin/grpc_tools_node_protoc \
+  --plugin=protoc-gen-grpc=./node_modules/.bin/grpc_tools_node_protoc_plugin \
+  --plugin=protoc-gen-ts=./node_modules/.bin/protoc-gen-ts \
+    --js_out=import_style=commonjs,binary:./${argv[j]}/proto \
+  --ts_out=./${argv[j]}/proto  \
+  --grpc_out=grpc_js:./${argv[j]}/proto \
+   --proto_path=./${argv[j]}/proto \
+  ./${argv}/proto/${argv[j]}.proto
 done
-
-
-  ./node_modules/.bin/grpc_tools_node_protoc -I greet/proto/                                   \
-    --js_out=import_style=commonjs:greet/proto/                            \
-    --grpc_out=grpc_js:greet/proto/                                        \
-    greet/proto/greet.proto;

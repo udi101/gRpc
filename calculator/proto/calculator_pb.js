@@ -1,4 +1,4 @@
-// source: calc.proto
+// source: calculator.proto
 /**
  * @fileoverview
  * @enhanceable
@@ -97,8 +97,8 @@ proto.calculator.SumRequest.prototype.toObject = function(opt_includeInstance) {
  */
 proto.calculator.SumRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    a: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    b: jspb.Message.getFieldWithDefault(msg, 2, 0)
+    firstNumber: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    secondNumber: jspb.Message.getFieldWithDefault(msg, 2, 0)
   };
 
   if (includeInstance) {
@@ -137,11 +137,11 @@ proto.calculator.SumRequest.deserializeBinaryFromReader = function(msg, reader) 
     switch (field) {
     case 1:
       var value = /** @type {number} */ (reader.readInt32());
-      msg.setA(value);
+      msg.setFirstNumber(value);
       break;
     case 2:
       var value = /** @type {number} */ (reader.readInt32());
-      msg.setB(value);
+      msg.setSecondNumber(value);
       break;
     default:
       reader.skipField();
@@ -172,14 +172,14 @@ proto.calculator.SumRequest.prototype.serializeBinary = function() {
  */
 proto.calculator.SumRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getA();
+  f = message.getFirstNumber();
   if (f !== 0) {
     writer.writeInt32(
       1,
       f
     );
   }
-  f = message.getB();
+  f = message.getSecondNumber();
   if (f !== 0) {
     writer.writeInt32(
       2,
@@ -190,10 +190,10 @@ proto.calculator.SumRequest.serializeBinaryToWriter = function(message, writer) 
 
 
 /**
- * optional int32 a = 1;
+ * optional int32 first_number = 1;
  * @return {number}
  */
-proto.calculator.SumRequest.prototype.getA = function() {
+proto.calculator.SumRequest.prototype.getFirstNumber = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
 
@@ -202,16 +202,16 @@ proto.calculator.SumRequest.prototype.getA = function() {
  * @param {number} value
  * @return {!proto.calculator.SumRequest} returns this
  */
-proto.calculator.SumRequest.prototype.setA = function(value) {
+proto.calculator.SumRequest.prototype.setFirstNumber = function(value) {
   return jspb.Message.setProto3IntField(this, 1, value);
 };
 
 
 /**
- * optional int32 b = 2;
+ * optional int32 second_number = 2;
  * @return {number}
  */
-proto.calculator.SumRequest.prototype.getB = function() {
+proto.calculator.SumRequest.prototype.getSecondNumber = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
 };
 
@@ -220,7 +220,7 @@ proto.calculator.SumRequest.prototype.getB = function() {
  * @param {number} value
  * @return {!proto.calculator.SumRequest} returns this
  */
-proto.calculator.SumRequest.prototype.setB = function(value) {
+proto.calculator.SumRequest.prototype.setSecondNumber = function(value) {
   return jspb.Message.setProto3IntField(this, 2, value);
 };
 

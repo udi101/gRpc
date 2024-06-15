@@ -6,7 +6,6 @@ import {GreetRequest} from './../proto/greet_pb';
 const doGreet = (client: GreetServiceClient) => {
     console.log('DoGreet was invoked by client!');
     const req = new GreetRequest().setFirstName('Udi');
-
     client.greet(req, (err, res) => {
         if (err) {
             console.error(err);
