@@ -8,7 +8,7 @@
     "proto:generate:greet": "scripts/gen.sh greet",
     "proto:generate:calc": "scripts/gen.sh calculator",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "greet:server": "nodemon greet/server",
+    "greet:server": "ts-node greet/server",
     "greet:client": "ts-node greet/client",
     "calc:server": "ts-node calculator/server",
     "calc:client": "ts-node calculator/client"

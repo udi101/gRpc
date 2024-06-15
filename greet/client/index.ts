@@ -16,12 +16,23 @@ const doGreet = (client: GreetServiceClient) => {
     });
 }
 
+const doGreetManyTimes = (client: GreetServiceClient) => {
+    console.log('DoGreetManyTimes was invoked by client!');
+    const req = new GreetRequest().setFirstName('Udi');
+    const call = client.greetManyTimes(req);
+    call.on('data', (res) => {
+        console.log(`Greet many times ${res.getResult()}`);
+    });
+}
+
+
 const main = () => {
     const creds = grpc.credentials.createInsecure();
     const addr = 'localhost:50051';
     const client = new GreetServiceClient(addr, creds);
 
-    doGreet(client);
+    // doGreet(client);
+    doGreetManyTimes(client);
 
 }
 

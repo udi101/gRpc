@@ -1,5 +1,5 @@
 import * as grpc from '@grpc/grpc-js';
-import {greet} from './greet';
+import {greet, greetManyTimes} from './greet';
 import {GreetServiceService} from "../proto/greet_grpc_pb";
 
 const addr: string = 'localhost:50051';
@@ -21,7 +21,7 @@ const main = (): void => {
     });
 
 
-    server.addService(GreetServiceService, {greet});
+    server.addService(GreetServiceService, {greet, greetManyTimes});
     server.bindAsync(addr, creds, (err: Error | null, port: number) => {
         if (err) {
             console.error(err);
